@@ -1,23 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title >Inicio Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form (submit)="login()">
-    <ion-item class="usuario">
-      <ion-label position="floating">Nombre de Usuario</ion-label>
-      <ion-input [(ngModel)]="username" name="username" required></ion-input>
-    </ion-item>
-    
-    <ion-item class="contraseña">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input [(ngModel)]="password" type="password" name="password" required></ion-input>
-    </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+      <ion-card-subtitle>Ingresa tus credenciales</ion-card-subtitle>
+    </ion-card-header>
 
-    <ion-button expand="full" type="submit">INGRESAR</ion-button>
-  </form>
-  
-  <ion-button expand="full" color="medium" [routerLink]="['/reset-password']">¿Olvidaste tu contraseña?</ion-button>
+    <ion-card-content>
+      <!-- Aquí empieza el formulario de login -->
+      <form (submit)="login()">
+        <ion-item class="usuario">
+          <ion-label position="floating">Nombre de Usuario</ion-label>
+          <ion-input [(ngModel)]="username" name="username" required></ion-input>
+        </ion-item>
+
+        <ion-item class="contraseña">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" type="password" name="password" required></ion-input>
+        </ion-item>
+
+        <ion-button class="boton-ingresar" expand="full" type="submit" color="dark">INGRESAR</ion-button>
+      </form>
+      <!-- Aquí termina el formulario de login -->
+      
+      <ion-button expand="full" color="medium" [routerLink]="['/reset-password']">¿Olvidaste tu contraseña?</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
