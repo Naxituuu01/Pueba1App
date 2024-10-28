@@ -10,11 +10,17 @@ export class LoginPage {
   username: string = '';
   password: string = '';
 
-  constructor(private router: Router) { }
-  
+  constructor(private router: Router) {
+    // Al inicializar, establecer una contraseña predeterminada si no existe
+    if (!localStorage.getItem('password')) {
+      localStorage.setItem('password', 'Admin');  // Contraseña predeterminada
+    }
+  }
 
   login() {
-    if (this.username === 'Admin' && this.password === 'Admin') {
+    const storedPassword = localStorage.getItem('password');  // Recupera la contraseña almacenada
+
+    if (this.username === 'Admin' && this.password === storedPassword) {
       this.router.navigate(['/home'], { queryParams: { username: this.username } });
     } else {
       alert('Usuario o contraseña incorrectos');

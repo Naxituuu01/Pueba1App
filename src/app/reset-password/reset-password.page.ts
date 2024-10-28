@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';  // Para mostrar alertas
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-reset-password',
@@ -8,9 +8,9 @@ import { AlertController } from '@ionic/angular';  // Para mostrar alertas
   styleUrls: ['./reset-password.page.scss'],
 })
 export class ResetPasswordPage {
-  username: string = '';  // Inicializa la variable de usuario
-  newPassword: string = '';  // Nueva contraseña
-  confirmPassword: string = '';  // Confirmar contraseña
+  username: string = '';
+  newPassword: string = '';
+  confirmPassword: string = '';
 
   constructor(private router: Router, private alertCtrl: AlertController) { }
 
@@ -45,8 +45,10 @@ export class ResetPasswordPage {
       return;
     }
 
-    // Simula la actualización de la contraseña
-    if (this.username === 'Admin') {  // Puedes cambiar esta lógica según tus necesidades
+    // Simula la actualización de la contraseña en localStorage
+    if (this.username === 'Admin') {
+      localStorage.setItem('password', this.newPassword);  // Actualiza la contraseña en localStorage
+
       const successAlert = await this.alertCtrl.create({
         header: 'Éxito',
         message: 'La contraseña ha sido actualizada exitosamente para ' + this.username,

@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inicio</ion-title>
+    <ion-title>Buscar Comida</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Bienvenido {{ username }}</h2>
+
+  <!-- Campo de búsqueda centrado -->
+  <div style="display: flex; justify-content: center; margin-top: 20px;">
+    <ion-searchbar placeholder="Buscar comida..." [(ngModel)]="searchTerm" (ionInput)="buscarComida()"></ion-searchbar>
+  </div>
+
+  <!-- Rectángulos de navegación -->
+  <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+    <ion-card button (click)="irAPagina('platos')" style="width: 45%;">
+      <ion-card-header>
+        <ion-card-title>Platos</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card button (click)="irAPagina('desayunos')" style="width: 45%;">
+      <ion-card-header>
+        <ion-card-title>Desayunos</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
 </ion-content>
